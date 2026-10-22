@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="MissionDef" format=3]
+
+[ext_resource type="Resource" path="res://content/bosses/hornet_gunship.tres" id="1_gc14t"]
+[ext_resource type="Resource" path="res://content/environments/desert.tres" id="2_wa87m"]
+[ext_resource type="Script" path="res://core/data/mission_def.gd" id="3_t8y2d"]
+[ext_resource type="Script" path="res://core/data/mission_trigger_def.gd" id="4_g1dx0"]
+[ext_resource type="Script" path="res://core/data/spawn_entry_def.gd" id="5_q4eev"]
+[ext_resource type="Resource" path="res://content/enemies/raider_buggy.tres" id="6_f4ie5"]
+[ext_resource type="Resource" path="res://content/enemies/shield_trooper.tres" id="7_l5s78"]
+[ext_resource type="Resource" path="res://content/enemies/scorpion.tres" id="8_m2beb"]
+
+[sub_resource type="Resource" id="Resource_7kv0a"]
+script = ExtResource("5_q4eev")
+enemy = ExtResource("6_f4ie5")
+count = 2
+interval = 2.5
+
+[sub_resource type="Resource" id="Resource_srgnc"]
+script = ExtResource("5_q4eev")
+enemy = ExtResource("7_l5s78")
+count = 2
+interval = 1.5
+delay = 1.0
+side = "left"
+
+[sub_resource type="Resource" id="Resource_as3mb"]
+script = ExtResource("4_g1dx0")
+message = "CONVOY AMBUSH!"
+lock_camera = true
+spawns = Array[ExtResource("5_q4eev")]([SubResource("Resource_7kv0a"), SubResource("Resource_srgnc")])
+shake = 5.0
+
+[sub_resource type="Resource" id="Resource_hlp2m"]
+script = ExtResource("5_q4eev")
+enemy = ExtResource("8_m2beb")
+count = 3
+interval = 0.9
+
+[sub_resource type="Resource" id="Resource_rxilm"]
+script = ExtResource("4_g1dx0")
+message = "SCORPIONS!"
+spawns = Array[ExtResource("5_q4eev")]([SubResource("Resource_hlp2m")])
+
+[resource]
+script = ExtResource("3_t8y2d")
+id = &"m02_desert_canyon"
+display_name = "Canyon Convoy"
+codename = "DUST DEVIL"
+description = "Raiders allied with the Iron Legion are moving weapons through the Scorpion Desert under gunship cover. Break the convoy and bring down the Hornet."
+environment = ExtResource("2_wa87m")
+layout_file = "res://content/missions/m02_desert_canyon/layout.txt"
+legend = Dictionary[String, String]({
+"H": "pickup:medkit",
+"L": "pickup:pickup_laser",
+"S": "pickup:pickup_spread",
+"a": "enemy:infantry",
+"b": "enemy:explosive_barrel",
+"d": "enemy:drone",
+"r": "enemy:shield_trooper",
+"t": "enemy:turret",
+"v": "enemy:raider_buggy",
+"x": "enemy:scorpion"
+})
+triggers = Array[ExtResource("4_g1dx0")]([SubResource("Resource_as3mb"), SubResource("Resource_rxilm")])
+boss = ExtResource("1_gc14t")
+par_time = 220.0

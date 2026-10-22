@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ProjectileDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/projectile_def.gd" id="1_tycbc"]
+
+[resource]
+script = ExtResource("1_tycbc")
+speed = 0.0
+gravity = 1200.0
+lifetime = 4.0
+radius = 8.0
+color = Color(0.35, 0.45, 0.2, 1)
+explode_radius = 70.0
+explode_damage = 1

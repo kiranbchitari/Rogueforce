@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="EnemyDef" format=3]
+
+[ext_resource type="Script" path="res://core/behaviors/attacks/attack_def.gd" id="1_fyg77"]
+[ext_resource type="Resource" path="res://content/projectiles/enemy_bullet.tres" id="2_jw7sh"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/shot_attack.gd" id="3_pkenx"]
+[ext_resource type="Script" path="res://core/behaviors/movement/stationary_movement.gd" id="4_0jyn8"]
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="5_gfdgt"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="6_kuajr"]
+
+[sub_resource type="Resource" id="Resource_klb4n"]
+script = ExtResource("3_pkenx")
+aim = "aimed"
+angle_deg = 0.0
+count = 3
+spread_deg = 24.0
+jitter_deg = 0.0
+track_during_burst = false
+label = "triple"
+cooldown = 2.2
+min_range = 0.0
+max_range = 800.0
+telegraph = "flash"
+telegraph_time = 0.5
+burst_count = 2
+burst_interval = 0.4
+active_time = 0.0
+recovery = 0.35
+stop_moving = true
+muzzle_offset = Vector2(0, -6)
+projectile = ExtResource("2_jw7sh")
+sfx_id = &"sfx.enemy_shot"
+
+[sub_resource type="Resource" id="Resource_5xv6q"]
+script = ExtResource("4_0jyn8")
+
+[sub_resource type="Resource" id="Resource_pwyln"]
+script = ExtResource("6_kuajr")
+asset_id = &"enemy.turret"
+size = Vector2(80, 56)
+offset = Vector2(0, -3)
+placeholder_shape = "turret"
+placeholder_color = Color(0.45, 0.47, 0.52, 1)
+
+[resource]
+script = ExtResource("5_gfdgt")
+id = &"turret"
+display_name = "Gun Turret"
+category = "turret"
+faction = &"iron_legion"
+visual = SubResource("Resource_pwyln")
+body_size = Vector2(60, 50)
+max_health = 12
+contact_damage = 1
+flying = false
+movement = SubResource("Resource_5xv6q")
+attacks = Array[ExtResource("1_fyg77")]([SubResource("Resource_klb4n")])
+first_attack_delay = 0.6
+frontal_shield = false
+score = 300
+drop_chance = 0.0
+death_explosion_radius = 0.0
+death_explosion_damage = 0
+counts_as_enemy = true

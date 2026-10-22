@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PickupDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/pickup_def.gd" id="1_d2tt1"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="2_str6c"]
+
+[sub_resource type="Resource" id="Resource_63mn4"]
+script = ExtResource("2_str6c")
+asset_id = &"pickup.extra_life"
+size = Vector2(42, 38)
+placeholder_shape = "orb"
+placeholder_color = Color(0.2, 0.8, 0.35, 1)
+
+[resource]
+script = ExtResource("1_d2tt1")
+id = &"extra_life"
+display_name = "1UP"
+kind = "life"
+label = "1UP"
+visual = SubResource("Resource_63mn4")

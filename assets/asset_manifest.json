@@ -1,0 +1,375 @@
+{
+ "_readme": "Stable asset ids -> files. Gameplay references ids only. Missing files fall back to placeholders. Sprites are stored at 4x their on-screen size so they stay sharp on 4K. See docs/ASSET_PIPELINE.md.",
+ "assets": {
+  "amb.desert_wind": {
+   "type": "audio",
+   "path": "res://assets/audio/ambience/desert_wind.wav",
+   "loop": true,
+   "volume_db": -4.0
+  },
+  "amb.jungle_rain": {
+   "type": "audio",
+   "path": "res://assets/audio/ambience/jungle_rain.wav",
+   "loop": true,
+   "volume_db": -6.0
+  },
+  "boss.hornet_gunship": {
+   "type": "single",
+   "path": "res://assets/bosses/hornet_gunship.png",
+   "rig": "hover"
+  },
+  "boss.warden_tank": {
+   "type": "single",
+   "path": "res://assets/bosses/warden_tank.png",
+   "faces_left": true,
+   "rig": "vehicle"
+  },
+  "char.commando": {
+   "type": "sheet",
+   "path": "res://assets/characters/commando_sheet.png",
+   "frame_size": [
+    292,
+    308
+   ],
+   "animations": {
+    "idle": {
+     "row": 0,
+     "frames": 1,
+     "fps": 6,
+     "loop": true
+    },
+    "run": {
+     "row": 1,
+     "frames": 5,
+     "fps": 12,
+     "loop": true
+    },
+    "jump": {
+     "row": 2,
+     "frames": 2,
+     "fps": 6,
+     "loop": true
+    },
+    "crouch": {
+     "row": 3,
+     "frames": 1,
+     "fps": 6,
+     "loop": true
+    },
+    "hurt": {
+     "row": 4,
+     "frames": 1,
+     "fps": 6,
+     "loop": false
+    },
+    "die": {
+     "row": 5,
+     "frames": 2,
+     "fps": 4,
+     "loop": false
+    }
+   },
+   "rig": "biped",
+   "rig_frame": [
+    0,
+    0
+   ]
+  },
+  "enemy.drone": {
+   "type": "single",
+   "path": "res://assets/enemies/drone.png",
+   "rig": "hover"
+  },
+  "enemy.grenadier": {
+   "type": "single",
+   "path": "res://assets/enemies/grenadier.png",
+   "rig": "biped"
+  },
+  "enemy.heavy": {
+   "type": "single",
+   "path": "res://assets/enemies/heavy.png"
+  },
+  "enemy.infantry": {
+   "type": "single",
+   "path": "res://assets/enemies/infantry.png",
+   "rig": "biped"
+  },
+  "enemy.raider_buggy": {
+   "type": "single",
+   "path": "res://assets/enemies/raider_buggy.png",
+   "rig": "vehicle"
+  },
+  "enemy.scorpion": {
+   "type": "single",
+   "path": "res://assets/enemies/scorpion.png"
+  },
+  "enemy.shield_trooper": {
+   "type": "single",
+   "path": "res://assets/enemies/shield_trooper.png"
+  },
+  "enemy.sniper": {
+   "type": "single",
+   "path": "res://assets/enemies/sniper.png",
+   "rig": "biped"
+  },
+  "enemy.turret": {
+   "type": "single",
+   "path": "res://assets/enemies/turret.png"
+  },
+  "env.desert.bg_dunes_far": {
+   "type": "single",
+   "path": "res://assets/environments/desert/bg_dunes_far.png"
+  },
+  "env.desert.bg_dunes_near": {
+   "type": "single",
+   "path": "res://assets/environments/desert/bg_dunes_near.png"
+  },
+  "env.desert.bg_haze": {
+   "type": "single",
+   "path": "res://assets/environments/desert/bg_haze.png"
+  },
+  "env.desert.bg_mesa": {
+   "type": "single",
+   "path": "res://assets/environments/desert/bg_mesa.png"
+  },
+  "env.desert.prop_cactus": {
+   "type": "single",
+   "path": "res://assets/environments/desert/prop_cactus.png"
+  },
+  "env.desert.prop_rock": {
+   "type": "single",
+   "path": "res://assets/environments/desert/prop_rock.png"
+  },
+  "env.desert.prop_wreck": {
+   "type": "single",
+   "path": "res://assets/environments/desert/prop_wreck.png"
+  },
+  "env.desert.tiles": {
+   "type": "tiles",
+   "path": "res://assets/environments/desert/tiles.png",
+   "tile_size": [
+    64,
+    64
+   ],
+   "tiles": {
+    "ground_top": [
+     0,
+     0
+    ],
+    "ground_fill": [
+     1,
+     0
+    ],
+    "platform": [
+     2,
+     0
+    ],
+    "block": [
+     3,
+     0
+    ]
+   }
+  },
+  "env.jungle.bg_far": {
+   "type": "single",
+   "path": "res://assets/environments/jungle/bg_far.png"
+  },
+  "env.jungle.bg_near": {
+   "type": "single",
+   "path": "res://assets/environments/jungle/bg_near.png",
+   "filter": "nearest"
+  },
+  "env.jungle.fg_leaves": {
+   "type": "single",
+   "path": "res://assets/environments/jungle/fg_leaves.png"
+  },
+  "env.jungle.prop_crate": {
+   "type": "single",
+   "path": "res://assets/environments/jungle/prop_crate.png",
+   "fit": "contain"
+  },
+  "env.jungle.prop_fern": {
+   "type": "single",
+   "path": "res://assets/environments/jungle/prop_fern.png",
+   "fit": "contain"
+  },
+  "env.jungle.prop_sandbags": {
+   "type": "single",
+   "path": "res://assets/environments/jungle/prop_sandbags.png",
+   "fit": "contain"
+  },
+  "env.jungle.tiles": {
+   "type": "tiles",
+   "path": "res://assets/environments/jungle/tiles.png",
+   "tile_size": [
+    256,
+    256
+   ],
+   "margin": 16,
+   "separation": 16,
+   "tiles": {
+    "ground_top": [
+     0,
+     0
+    ],
+    "ground_fill": [
+     1,
+     0
+    ],
+    "platform": [
+     2,
+     0
+    ],
+    "block": [
+     3,
+     0
+    ]
+   }
+  },
+  "hazard.barbed_wire": {
+   "type": "single",
+   "path": "res://assets/environments/hazards/barbed_wire.png"
+  },
+  "hazard.punji_stakes": {
+   "type": "single",
+   "path": "res://assets/environments/hazards/punji_stakes.png"
+  },
+  "hazard.quicksand": {
+   "type": "single",
+   "path": "res://assets/environments/hazards/quicksand.png"
+  },
+  "hazard.toxic_swamp": {
+   "type": "single",
+   "path": "res://assets/environments/hazards/toxic_swamp.png"
+  },
+  "music.boss": {
+   "type": "audio",
+   "path": "res://assets/audio/music/boss.wav",
+   "loop": true,
+   "loop_start": 1.4286,
+   "loop_end": 24.2857,
+   "volume_db": 0.0
+  },
+  "music.desert": {
+   "type": "audio",
+   "path": "res://assets/audio/music/desert.wav",
+   "loop": true,
+   "loop_start": 1.6667,
+   "loop_end": 28.3333,
+   "volume_db": 0.0
+  },
+  "music.jungle": {
+   "type": "audio",
+   "path": "res://assets/audio/music/jungle.wav",
+   "loop": true,
+   "loop_start": 3.1579,
+   "loop_end": 28.4211,
+   "volume_db": 0.0
+  },
+  "music.title": {
+   "type": "audio",
+   "path": "res://assets/audio/music/jungle.wav",
+   "loop": true,
+   "loop_start": 3.1579,
+   "loop_end": 28.4211,
+   "volume_db": 0.0
+  },
+  "music.victory": {
+   "type": "audio",
+   "path": "res://assets/audio/music/victory.wav",
+   "loop": false,
+   "loop_start": 0,
+   "loop_end": 0,
+   "volume_db": 0.0
+  },
+  "pickup.extra_life": {
+   "type": "single",
+   "path": "res://assets/pickups/extra_life.png",
+   "fit": "contain"
+  },
+  "pickup.laser": {
+   "type": "single",
+   "path": "res://assets/pickups/laser.png",
+   "fit": "contain"
+  },
+  "pickup.medkit": {
+   "type": "single",
+   "path": "res://assets/pickups/medkit.png",
+   "fit": "contain"
+  },
+  "pickup.mg": {
+   "type": "single",
+   "path": "res://assets/pickups/machine_gun.png",
+   "fit": "contain"
+  },
+  "pickup.spread": {
+   "type": "single",
+   "path": "res://assets/pickups/spread.png",
+   "fit": "contain"
+  },
+  "prop.fuel_barrel": {
+   "type": "single",
+   "path": "res://assets/props/fuel_barrel.png"
+  },
+  "sfx.boss_warning": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/boss_warning.wav",
+   "volume_db": -2.0
+  },
+  "sfx.checkpoint": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/checkpoint.wav",
+   "volume_db": -5.0
+  },
+  "sfx.death": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/death.wav",
+   "volume_db": 0.0
+  },
+  "sfx.enemy_shot": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/enemy_shot.wav",
+   "volume_db": -9.0
+  },
+  "sfx.explosion": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/explosion.wav",
+   "volume_db": -1.0
+  },
+  "sfx.hit": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/hit.wav",
+   "volume_db": -9.0
+  },
+  "sfx.hurt": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/hurt.wav",
+   "volume_db": -3.0
+  },
+  "sfx.jump": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/jump.wav",
+   "volume_db": -14.0
+  },
+  "sfx.laser": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/laser.wav",
+   "volume_db": -7.0
+  },
+  "sfx.pickup": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/pickup.wav",
+   "volume_db": -5.0
+  },
+  "sfx.ping": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/ping.wav",
+   "volume_db": -12.0
+  },
+  "sfx.shot": {
+   "type": "audio",
+   "path": "res://assets/audio/sfx/shot.wav",
+   "volume_db": -7.0
+  }
+ }
+}

@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EnemyDef" format=3]
+
+[ext_resource type="Script" path="res://core/behaviors/attacks/attack_def.gd" id="1_0kpnl"]
+[ext_resource type="Resource" path="res://content/projectiles/enemy_bullet.tres" id="2_vq424"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/shot_attack.gd" id="3_43o3x"]
+[ext_resource type="Script" path="res://core/behaviors/movement/patrol_movement.gd" id="4_l2hhy"]
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="5_g00q2"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="6_ehh0c"]
+
+[sub_resource type="Resource" id="Resource_fxv85"]
+script = ExtResource("3_43o3x")
+aim = "aimed"
+angle_deg = 0.0
+count = 1
+spread_deg = 0.0
+jitter_deg = 0.0
+track_during_burst = false
+label = "mg"
+cooldown = 1.6
+min_range = 0.0
+max_range = 600.0
+telegraph = "flash"
+telegraph_time = 0.3
+burst_count = 4
+burst_interval = 0.1
+active_time = 0.0
+recovery = 0.35
+stop_moving = false
+muzzle_offset = Vector2(20, -30)
+projectile = ExtResource("2_vq424")
+sfx_id = &"sfx.enemy_shot"
+
+[sub_resource type="Resource" id="Resource_m3nt6"]
+script = ExtResource("4_l2hhy")
+speed = 240.0
+engage_range = 0.0
+
+[sub_resource type="Resource" id="Resource_84ou4"]
+script = ExtResource("6_ehh0c")
+asset_id = &"enemy.raider_buggy"
+size = Vector2(124, 78)
+offset = Vector2(0, -11)
+placeholder_shape = "tank"
+placeholder_color = Color(0.72, 0.56, 0.3, 1)
+
+[resource]
+script = ExtResource("5_g00q2")
+id = &"raider_buggy"
+display_name = "Raider Buggy"
+category = "vehicle"
+faction = &"dune_raiders"
+visual = SubResource("Resource_84ou4")
+body_size = Vector2(110, 56)
+max_health = 8
+contact_damage = 1
+flying = false
+movement = SubResource("Resource_m3nt6")
+attacks = Array[ExtResource("1_0kpnl")]([SubResource("Resource_fxv85")])
+first_attack_delay = 0.6
+frontal_shield = false
+score = 350
+drop_chance = 0.0
+death_explosion_radius = 90.0
+death_explosion_damage = 1
+counts_as_enemy = true

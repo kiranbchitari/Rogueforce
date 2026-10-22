@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ProjectileDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/projectile_def.gd" id="1_6vaio"]
+
+[resource]
+script = ExtResource("1_6vaio")
+speed = 1250.0
+lifetime = 1.0
+radius = 4.0
+length = 18.0
+color = Color(1, 0.8, 0.3, 1)

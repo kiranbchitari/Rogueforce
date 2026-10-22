@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PickupDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/pickup_def.gd" id="1_4ibmt"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="2_s3df1"]
+
+[sub_resource type="Resource" id="Resource_qa7hd"]
+script = ExtResource("2_s3df1")
+asset_id = &"pickup.medkit"
+size = Vector2(42, 36)
+placeholder_shape = "crate"
+placeholder_color = Color(0.9, 0.9, 0.9, 1)
+
+[resource]
+script = ExtResource("1_4ibmt")
+id = &"medkit"
+display_name = "Medkit"
+kind = "health"
+amount = 2
+label = "+"
+visual = SubResource("Resource_qa7hd")

@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="EnemyDef" format=3]
+
+[ext_resource type="Script" path="res://core/behaviors/attacks/attack_def.gd" id="1_dgf5k"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/charge_attack.gd" id="2_w6uvi"]
+[ext_resource type="Script" path="res://core/behaviors/movement/chase_movement.gd" id="3_vaawu"]
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="4_tsy81"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="5_1t841"]
+
+[sub_resource type="Resource" id="Resource_gvpkh"]
+script = ExtResource("2_w6uvi")
+speed = 520.0
+label = "lunge"
+cooldown = 2.5
+max_range = 420.0
+telegraph_time = 0.45
+active_time = 0.6
+sfx_id = &""
+
+[sub_resource type="Resource" id="Resource_r7jjc"]
+script = ExtResource("3_vaawu")
+speed = 120.0
+preferred_distance = 0.0
+tolerance = 10.0
+retreat = false
+
+[sub_resource type="Resource" id="Resource_ufywx"]
+script = ExtResource("5_1t841")
+asset_id = &"enemy.scorpion"
+placeholder_shape = "creature"
+placeholder_color = Color(0.62, 0.45, 0.2, 1)
+
+[resource]
+script = ExtResource("4_tsy81")
+id = &"scorpion"
+display_name = "Dune Scorpion"
+category = "creature"
+faction = &"wildlife"
+visual = SubResource("Resource_ufywx")
+body_size = Vector2(70, 40)
+max_health = 4
+contact_damage = 1
+flying = false
+movement = SubResource("Resource_r7jjc")
+attacks = Array[ExtResource("1_dgf5k")]([SubResource("Resource_gvpkh")])
+first_attack_delay = 0.6
+frontal_shield = false
+score = 200
+drop_chance = 0.0
+death_explosion_radius = 0.0
+death_explosion_damage = 0
+counts_as_enemy = true

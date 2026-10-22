@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CampaignDef" format=3]
+
+[ext_resource type="Resource" path="res://content/characters/commando.tres" id="1_irorp"]
+[ext_resource type="Script" path="res://core/data/mission_def.gd" id="2_llidb"]
+[ext_resource type="Resource" path="res://content/missions/m01_jungle_outpost/mission.tres" id="3_nfcns"]
+[ext_resource type="Resource" path="res://content/missions/m02_desert_canyon/mission.tres" id="4_pq1jh"]
+[ext_resource type="Script" path="res://core/data/campaign_def.gd" id="5_w737g"]
+
+[resource]
+script = ExtResource("5_w737g")
+id = &"main"
+display_name = "Operation Rogueforce"
+missions = Array[ExtResource("2_llidb")]([ExtResource("3_nfcns"), ExtResource("4_pq1jh")])
+character = ExtResource("1_irorp")

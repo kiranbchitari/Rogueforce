@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="EnvironmentDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="1_0mgee"]
+[ext_resource type="Resource" path="res://content/enemies/infantry.tres" id="2_lcjlq"]
+[ext_resource type="Resource" path="res://content/enemies/grenadier.tres" id="3_j3b7t"]
+[ext_resource type="Resource" path="res://content/enemies/drone.tres" id="4_1kpq3"]
+[ext_resource type="Resource" path="res://content/hazards/toxic_swamp.tres" id="5_fihcv"]
+[ext_resource type="Script" path="res://core/data/parallax_layer_def.gd" id="6_d0y5n"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="7_3qk4p"]
+[ext_resource type="Script" path="res://core/data/environment_def.gd" id="8_xl6u3"]
+[ext_resource type="Resource" path="res://content/hazards/punji_stakes.tres" id="9_x7qq7"]
+
+[sub_resource type="Resource" id="Resource_far"]
+script = ExtResource("6_d0y5n")
+asset_id = &"env.jungle.bg_far"
+scroll_scale = 0.12
+y_offset = -12.0
+height = 720
+placeholder_shape = "mountains"
+placeholder_color = Color(0.45, 0.6, 0.62, 1)
+placeholder_seed = 3
+
+[sub_resource type="Resource" id="Resource_near"]
+script = ExtResource("6_d0y5n")
+asset_id = &"env.jungle.bg_near"
+scroll_scale = 0.37
+y_offset = -12.0
+height = 720
+placeholder_shape = "jungle_canopy"
+placeholder_color = Color(0.15, 0.3, 0.2, 1)
+placeholder_seed = 7
+
+[sub_resource type="Resource" id="Resource_fg"]
+script = ExtResource("6_d0y5n")
+asset_id = &"env.jungle.fg_leaves"
+scroll_scale = 1.35
+y_offset = 120.0
+foreground = true
+modulate = Color(1, 1, 1, 0.92)
+height = 340
+placeholder_shape = "foliage"
+placeholder_color = Color(0.03, 0.08, 0.05, 1)
+placeholder_seed = 5
+
+[sub_resource type="Resource" id="Resource_m5f4i"]
+script = ExtResource("7_3qk4p")
+asset_id = &"env.jungle.prop_fern"
+size = Vector2(60, 56)
+placeholder_shape = "plant"
+placeholder_color = Color(0.2, 0.5, 0.2, 1)
+
+[sub_resource type="Resource" id="Resource_u18oq"]
+script = ExtResource("7_3qk4p")
+asset_id = &"env.jungle.prop_crate"
+size = Vector2(56, 48)
+placeholder_shape = "crate"
+placeholder_color = Color(0.55, 0.4, 0.25, 1)
+
+[sub_resource type="Resource" id="Resource_nt3mj"]
+script = ExtResource("7_3qk4p")
+asset_id = &"env.jungle.prop_sandbags"
+size = Vector2(60, 52)
+placeholder_shape = "crate"
+placeholder_color = Color(0.6, 0.55, 0.35, 1)
+
+[resource]
+script = ExtResource("8_xl6u3")
+id = &"jungle"
+display_name = "Kaliga Jungle"
+description = "Rain-soaked canopy, river swamps and hidden bunkers."
+sky_top_color = Color(0.16, 0.32, 0.28, 1)
+sky_bottom_color = Color(0.62, 0.75, 0.55, 1)
+ambient_tint = Color(0.95, 1, 0.92, 1)
+fog_color = Color(0, 0, 0, 0)
+weather = "rain"
+weather_intensity = 0.6
+parallax_layers = Array[ExtResource("6_d0y5n")]([SubResource("Resource_far"), SubResource("Resource_near"), SubResource("Resource_fg")])
+tileset_asset_id = &"env.jungle.tiles"
+ground_color = Color(0.36, 0.24, 0.14, 1)
+ground_top_color = Color(0.25, 0.55, 0.18, 1)
+platform_color = Color(0.45, 0.3, 0.15, 1)
+block_color = Color(0.38, 0.4, 0.36, 1)
+props = Array[ExtResource("7_3qk4p")]([SubResource("Resource_m5f4i"), SubResource("Resource_u18oq"), SubResource("Resource_nt3mj")])
+prop_density = 0.15
+spike_hazard = ExtResource("9_x7qq7")
+liquid_hazard = ExtResource("5_fihcv")
+default_roster = Array[ExtResource("1_0mgee")]([ExtResource("2_lcjlq"), ExtResource("3_j3b7t"), ExtResource("4_1kpq3")])
+music_id = &"music.jungle"
+ambience_id = &"amb.jungle_rain"

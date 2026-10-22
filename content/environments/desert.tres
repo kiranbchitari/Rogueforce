@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="EnvironmentDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="1_xq41y"]
+[ext_resource type="Resource" path="res://content/enemies/shield_trooper.tres" id="2_xcuo5"]
+[ext_resource type="Resource" path="res://content/enemies/raider_buggy.tres" id="3_jlnan"]
+[ext_resource type="Resource" path="res://content/enemies/scorpion.tres" id="4_kmkpm"]
+[ext_resource type="Resource" path="res://content/hazards/quicksand.tres" id="5_wr158"]
+[ext_resource type="Script" path="res://core/data/parallax_layer_def.gd" id="6_fvsix"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="7_0yass"]
+[ext_resource type="Script" path="res://core/data/environment_def.gd" id="8_fwc3i"]
+[ext_resource type="Resource" path="res://content/hazards/barbed_wire.tres" id="9_uevrr"]
+
+[sub_resource type="Resource" id="Resource_xynci"]
+script = ExtResource("6_fvsix")
+asset_id = &"env.desert.bg_mesa"
+scroll_scale = 0.12
+y_offset = -140.0
+height = 380
+placeholder_shape = "mesa"
+placeholder_color = Color(0.75, 0.5, 0.35, 1)
+placeholder_seed = 2
+
+[sub_resource type="Resource" id="Resource_6xjpx"]
+script = ExtResource("6_fvsix")
+asset_id = &"env.desert.bg_haze"
+scroll_scale = 0.2
+y_offset = -100.0
+autoscroll = 30.0
+height = 300
+placeholder_shape = "fog"
+placeholder_color = Color(1, 0.9, 0.7, 0.35)
+placeholder_seed = 4
+
+[sub_resource type="Resource" id="Resource_ybxfb"]
+script = ExtResource("6_fvsix")
+asset_id = &"env.desert.bg_dunes_far"
+scroll_scale = 0.35
+y_offset = -60.0
+height = 300
+placeholder_shape = "dunes"
+placeholder_color = Color(0.85, 0.65, 0.4, 1)
+placeholder_seed = 6
+
+[sub_resource type="Resource" id="Resource_rw81w"]
+script = ExtResource("6_fvsix")
+asset_id = &"env.desert.bg_dunes_near"
+scroll_scale = 0.6
+height = 220
+placeholder_shape = "dunes"
+placeholder_color = Color(0.78, 0.56, 0.33, 1)
+placeholder_seed = 9
+
+[sub_resource type="Resource" id="Resource_ocsyd"]
+script = ExtResource("7_0yass")
+asset_id = &"env.desert.prop_cactus"
+size = Vector2(40, 70)
+placeholder_shape = "plant"
+placeholder_color = Color(0.35, 0.55, 0.3, 1)
+
+[sub_resource type="Resource" id="Resource_6pios"]
+script = ExtResource("7_0yass")
+asset_id = &"env.desert.prop_rock"
+size = Vector2(80, 46)
+placeholder_shape = "rock"
+placeholder_color = Color(0.6, 0.4, 0.3, 1)
+
+[sub_resource type="Resource" id="Resource_cqpq0"]
+script = ExtResource("7_0yass")
+asset_id = &"env.desert.prop_wreck"
+size = Vector2(90, 50)
+placeholder_shape = "structure"
+placeholder_color = Color(0.4, 0.35, 0.3, 1)
+
+[resource]
+script = ExtResource("8_fwc3i")
+id = &"desert"
+display_name = "Scorpion Desert"
+description = "Sun-bleached canyons, quicksand flats and raider convoys."
+sky_top_color = Color(0.45, 0.6, 0.85, 1)
+sky_bottom_color = Color(1, 0.85, 0.6, 1)
+ambient_tint = Color(1, 0.97, 0.9, 1)
+fog_color = Color(0.9, 0.7, 0.45, 0.06)
+weather = "sand"
+weather_intensity = 0.5
+parallax_layers = Array[ExtResource("6_fvsix")]([SubResource("Resource_xynci"), SubResource("Resource_6xjpx"), SubResource("Resource_ybxfb"), SubResource("Resource_rw81w")])
+tileset_asset_id = &"env.desert.tiles"
+ground_color = Color(0.72, 0.52, 0.3, 1)
+ground_top_color = Color(0.88, 0.72, 0.45, 1)
+platform_color = Color(0.45, 0.42, 0.38, 1)
+block_color = Color(0.62, 0.5, 0.4, 1)
+props = Array[ExtResource("7_0yass")]([SubResource("Resource_ocsyd"), SubResource("Resource_6pios"), SubResource("Resource_cqpq0")])
+prop_density = 0.1
+spike_hazard = ExtResource("9_uevrr")
+liquid_hazard = ExtResource("5_wr158")
+default_roster = Array[ExtResource("1_xq41y")]([ExtResource("2_xcuo5"), ExtResource("3_jlnan"), ExtResource("4_kmkpm")])
+music_id = &"music.desert"
+ambience_id = &"amb.desert_wind"

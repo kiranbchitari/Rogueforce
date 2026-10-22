@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ProjectileDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/projectile_def.gd" id="1_sx1hh"]
+
+[resource]
+script = ExtResource("1_sx1hh")
+speed = 120.0
+gravity = 1100.0
+lifetime = 4.0
+radius = 10.0
+color = Color(0.2, 0.2, 0.2, 1)
+explode_radius = 70.0
+explode_damage = 1

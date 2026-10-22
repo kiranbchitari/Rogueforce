@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HazardDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/hazard_def.gd" id="1_a4exs"]
+
+[resource]
+script = ExtResource("1_a4exs")
+id = &"quicksand"
+display_name = "Quicksand"
+respawn_player = true
+color = Color(0.75, 0.6, 0.35, 0.95)
+surface_color = Color(0.92, 0.8, 0.52, 1)
+asset_id = &"hazard.quicksand"

@@ -1,0 +1,45 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+
+config/name="ROGUEFORCE"
+config/description="Multi-world 2D run-and-gun. Worlds, enemies, bosses and missions are data-driven."
+run/main_scene="res://core/ui/title_screen.tscn"
+config/features=PackedStringArray("4.7")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Assets="*res://autoload/assets.gd"
+Content="*res://autoload/content.gd"
+Audio="*res://autoload/audio.gd"
+Game="*res://autoload/game.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"mipmaps/generate": true
+}
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="platform"
+2d_physics/layer_3="player"
+2d_physics/layer_4="enemy"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3
+
+environment/defaults/default_clear_color=Color(0.05, 0.05, 0.07, 1)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponDef" format=3]
+
+[ext_resource type="Resource" path="res://content/projectiles/rifle_bullet.tres" id="1_mn2hb"]
+[ext_resource type="Script" path="res://core/data/weapon_def.gd" id="2_j6rxi"]
+
+[resource]
+script = ExtResource("2_j6rxi")
+id = &"rifle"
+display_name = "Rifle"
+projectile = ExtResource("1_mn2hb")
+fire_interval = 0.15
+hud_color = Color(0.9, 0.9, 0.85, 1)

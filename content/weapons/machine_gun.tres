@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponDef" format=3]
+
+[ext_resource type="Resource" path="res://content/projectiles/mg_bullet.tres" id="1_a27fo"]
+[ext_resource type="Script" path="res://core/data/weapon_def.gd" id="2_oxfkf"]
+
+[resource]
+script = ExtResource("2_oxfkf")
+id = &"machine_gun"
+display_name = "Machine Gun"
+projectile = ExtResource("1_a27fo")
+fire_interval = 0.075
+jitter_deg = 4.0
+hud_color = Color(1, 0.8, 0.3, 1)

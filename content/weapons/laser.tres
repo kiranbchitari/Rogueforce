@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponDef" format=3]
+
+[ext_resource type="Resource" path="res://content/projectiles/laser_bolt.tres" id="1_ldguj"]
+[ext_resource type="Script" path="res://core/data/weapon_def.gd" id="2_ag7rd"]
+
+[resource]
+script = ExtResource("2_ag7rd")
+id = &"laser"
+display_name = "Laser"
+projectile = ExtResource("1_ldguj")
+fire_interval = 0.32
+muzzle_color = Color(0.4, 0.9, 1, 1)
+sfx_id = &"sfx.laser"
+hud_color = Color(0.5, 0.9, 1, 1)

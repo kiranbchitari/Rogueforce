@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="EnemyDef" format=3]
+
+[ext_resource type="Script" path="res://core/behaviors/attacks/attack_def.gd" id="1_20jcm"]
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="2_shx8y"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="3_e2m7c"]
+
+[sub_resource type="Resource" id="Resource_tvcw7"]
+script = ExtResource("3_e2m7c")
+asset_id = &"prop.fuel_barrel"
+placeholder_shape = "barrel"
+placeholder_color = Color(0.75, 0.2, 0.15, 1)
+
+[resource]
+script = ExtResource("2_shx8y")
+id = &"explosive_barrel"
+display_name = "Fuel Barrel"
+category = "object"
+faction = &""
+visual = SubResource("Resource_tvcw7")
+body_size = Vector2(36, 50)
+max_health = 2
+contact_damage = 0
+flying = false
+attacks = Array[ExtResource("1_20jcm")]([])
+first_attack_delay = 0.0
+frontal_shield = false
+score = 50
+drop_chance = 0.0
+death_explosion_radius = 130.0
+death_explosion_damage = 2
+counts_as_enemy = false

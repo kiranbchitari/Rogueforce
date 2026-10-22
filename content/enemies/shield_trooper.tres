@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="EnemyDef" format=3]
+
+[ext_resource type="Script" path="res://core/behaviors/attacks/attack_def.gd" id="1_vx4p3"]
+[ext_resource type="Resource" path="res://content/projectiles/enemy_bullet.tres" id="2_rkksx"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/shot_attack.gd" id="3_t52tw"]
+[ext_resource type="Script" path="res://core/behaviors/movement/chase_movement.gd" id="4_igdm7"]
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="5_uo88a"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="6_cu0jg"]
+
+[sub_resource type="Resource" id="Resource_3gxm6"]
+script = ExtResource("3_t52tw")
+aim = "aimed"
+angle_deg = 0.0
+count = 1
+spread_deg = 0.0
+jitter_deg = 0.0
+track_during_burst = false
+label = "burst"
+cooldown = 2.2
+min_range = 0.0
+max_range = 600.0
+telegraph = "flash"
+telegraph_time = 0.4
+burst_count = 3
+burst_interval = 0.15
+active_time = 0.0
+recovery = 0.35
+stop_moving = true
+muzzle_offset = Vector2(28, -12)
+projectile = ExtResource("2_rkksx")
+sfx_id = &"sfx.enemy_shot"
+
+[sub_resource type="Resource" id="Resource_l4tbh"]
+script = ExtResource("4_igdm7")
+speed = 110.0
+preferred_distance = 220.0
+
+[sub_resource type="Resource" id="Resource_bioft"]
+script = ExtResource("6_cu0jg")
+asset_id = &"enemy.shield_trooper"
+placeholder_color = Color(0.4, 0.46, 0.58, 1)
+
+[resource]
+script = ExtResource("5_uo88a")
+id = &"shield_trooper"
+display_name = "Shield Trooper"
+category = "shielded"
+faction = &"iron_legion"
+visual = SubResource("Resource_bioft")
+body_size = Vector2(40, 80)
+max_health = 4
+contact_damage = 1
+flying = false
+movement = SubResource("Resource_l4tbh")
+attacks = Array[ExtResource("1_vx4p3")]([SubResource("Resource_3gxm6")])
+first_attack_delay = 0.6
+frontal_shield = true
+score = 250
+drop_chance = 0.0
+death_explosion_radius = 0.0
+death_explosion_damage = 0
+counts_as_enemy = true

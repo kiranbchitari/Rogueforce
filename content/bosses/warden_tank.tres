@@ -1,0 +1,227 @@
+[gd_resource type="Resource" script_class="BossDef" format=3]
+
+[ext_resource type="Script" path="res://core/data/boss_phase_def.gd" id="1_brccr"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/attack_def.gd" id="2_cueqq"]
+[ext_resource type="Resource" path="res://content/projectiles/tank_shell.tres" id="3_rf32n"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/shot_attack.gd" id="4_dexmd"]
+[ext_resource type="Resource" path="res://content/projectiles/enemy_bullet.tres" id="5_ehi0a"]
+[ext_resource type="Script" path="res://core/behaviors/movement/strafe_movement.gd" id="6_1colc"]
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="7_mpjxi"]
+[ext_resource type="Resource" path="res://content/projectiles/mortar_shell.tres" id="8_rns65"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/artillery_attack.gd" id="9_ujun5"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/charge_attack.gd" id="10_1s814"]
+[ext_resource type="Resource" path="res://content/projectiles/flak.tres" id="11_34fc7"]
+[ext_resource type="Resource" path="res://content/enemies/infantry.tres" id="12_h3ddb"]
+[ext_resource type="Script" path="res://core/data/boss_def.gd" id="13_ccw1q"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="14_kldni"]
+[ext_resource type="Script" path="res://core/data/weak_point_def.gd" id="15_rysi5"]
+
+[sub_resource type="Resource" id="Resource_uka32"]
+script = ExtResource("4_dexmd")
+aim = "aimed"
+angle_deg = 0.0
+count = 1
+spread_deg = 0.0
+jitter_deg = 0.0
+track_during_burst = false
+label = "main gun"
+cooldown = 1.0
+min_range = 0.0
+max_range = 2000.0
+telegraph = "aim_line"
+telegraph_time = 0.7
+burst_count = 1
+burst_interval = 0.12
+active_time = 0.0
+recovery = 0.35
+stop_moving = true
+muzzle_offset = Vector2(148, -29)
+projectile = ExtResource("3_rf32n")
+sfx_id = &"sfx.explosion"
+
+[sub_resource type="Resource" id="Resource_v7lk1"]
+script = ExtResource("4_dexmd")
+aim = "aimed"
+angle_deg = 0.0
+count = 1
+spread_deg = 0.0
+jitter_deg = 5.0
+track_during_burst = true
+label = "coax mg"
+cooldown = 0.5
+min_range = 0.0
+max_range = 2000.0
+telegraph = "flash"
+telegraph_time = 0.45
+burst_count = 6
+burst_interval = 0.1
+active_time = 0.0
+recovery = 0.35
+stop_moving = true
+muzzle_offset = Vector2(60, -40)
+projectile = ExtResource("5_ehi0a")
+sfx_id = &"sfx.enemy_shot"
+
+[sub_resource type="Resource" id="Resource_1i5pe"]
+script = ExtResource("6_1colc")
+waypoints = PackedVector2Array(0.78, 0.5, 0.62, 0.5)
+speed = 90.0
+pause = 1.2
+
+[sub_resource type="Resource" id="Resource_c0vh0"]
+script = ExtResource("1_brccr")
+name = "Siege"
+enter_when_destroyed = PackedStringArray()
+movement = SubResource("Resource_1i5pe")
+attacks = Array[ExtResource("2_cueqq")]([SubResource("Resource_uka32"), SubResource("Resource_v7lk1")])
+pause_between_attacks = 0.9
+hull_damage_multiplier = 0.2
+
+[sub_resource type="Resource" id="Resource_ik4tm"]
+script = ExtResource("9_ujun5")
+spacing = 170.0
+drop_speed = 600.0
+label = "mortar"
+cooldown = 1.0
+max_range = 2000.0
+telegraph = "ground_marker"
+telegraph_time = 1.0
+burst_count = 4
+burst_interval = 0.15
+projectile = ExtResource("8_rns65")
+
+[sub_resource type="Resource" id="Resource_icgbs"]
+script = ExtResource("10_1s814")
+speed = 620.0
+label = "ram"
+max_range = 2000.0
+telegraph_time = 0.75
+active_time = 0.9
+recovery = 0.8
+sfx_id = &""
+
+[sub_resource type="Resource" id="Resource_o85ma"]
+script = ExtResource("6_1colc")
+waypoints = PackedVector2Array(0.8, 0.5, 0.35, 0.5, 0.6, 0.5)
+speed = 150.0
+
+[sub_resource type="Resource" id="Resource_gom1f"]
+script = ExtResource("1_brccr")
+name = "Overdrive"
+enter_at_health = 0.6
+enter_when_destroyed = PackedStringArray("cannon")
+movement = SubResource("Resource_o85ma")
+attacks = Array[ExtResource("2_cueqq")]([SubResource("Resource_ik4tm"), SubResource("Resource_icgbs"), SubResource("Resource_v7lk1")])
+pause_between_attacks = 0.7
+hull_damage_multiplier = 0.35
+message = "OVERDRIVE - ENGINE EXPOSED"
+tint = Color(1, 0.88, 0.78, 1)
+
+[sub_resource type="Resource" id="Resource_ibasy"]
+script = ExtResource("9_ujun5")
+count = 6
+cover_arena = true
+label = "carpet"
+cooldown = 1.0
+max_range = 2000.0
+telegraph = "ground_marker"
+telegraph_time = 0.9
+burst_count = 3
+burst_interval = 0.25
+projectile = ExtResource("8_rns65")
+
+[sub_resource type="Resource" id="Resource_5e4xs"]
+script = ExtResource("4_dexmd")
+aim = "aimed"
+angle_deg = 0.0
+count = 5
+spread_deg = 50.0
+jitter_deg = 0.0
+track_during_burst = true
+label = "flak fan"
+cooldown = 0.5
+min_range = 0.0
+max_range = 2000.0
+telegraph = "flash"
+telegraph_time = 0.5
+burst_count = 3
+burst_interval = 0.25
+active_time = 0.0
+recovery = 0.35
+stop_moving = true
+muzzle_offset = Vector2(60, -40)
+projectile = ExtResource("11_34fc7")
+sfx_id = &"sfx.enemy_shot"
+
+[sub_resource type="Resource" id="Resource_67sge"]
+script = ExtResource("6_1colc")
+waypoints = PackedVector2Array(0.8, 0.5, 0.3, 0.5)
+speed = 190.0
+pause = 0.5
+
+[sub_resource type="Resource" id="Resource_anm7f"]
+script = ExtResource("1_brccr")
+name = "Last Stand"
+enter_at_health = 0.3
+enter_when_destroyed = PackedStringArray()
+movement = SubResource("Resource_67sge")
+attacks = Array[ExtResource("2_cueqq")]([SubResource("Resource_ibasy"), SubResource("Resource_5e4xs"), SubResource("Resource_icgbs")])
+attack_order = "random"
+pause_between_attacks = 0.5
+hull_damage_multiplier = 0.35
+message = "LAST STAND"
+summon = Array[ExtResource("7_mpjxi")]([ExtResource("12_h3ddb"), ExtResource("12_h3ddb")])
+tint = Color(1, 0.6, 0.55, 1)
+
+[sub_resource type="Resource" id="Resource_7mt06"]
+script = ExtResource("14_kldni")
+asset_id = &"boss.warden_tank"
+size = Vector2(300, 162)
+offset = Vector2(0, -11)
+placeholder_shape = "tank"
+placeholder_color = Color(0.38, 0.42, 0.3, 1)
+
+[sub_resource type="Resource" id="Resource_26hcx"]
+script = ExtResource("14_kldni")
+asset_id = &"boss.warden_tank.cannon"
+placeholder_shape = "structure"
+placeholder_color = Color(0.75, 0.5, 0.15, 1)
+
+[sub_resource type="Resource" id="Resource_ywqn7"]
+script = ExtResource("15_rysi5")
+id = &"cannon"
+display_name = "Main Gun"
+offset = Vector2(-90, -29)
+size = Vector2(110, 28)
+damage_multiplier = 1.5
+health = 45
+destroy_damage = 30
+active_phases = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_f0ljf"]
+script = ExtResource("14_kldni")
+asset_id = &"boss.warden_tank.engine"
+placeholder_shape = "orb"
+placeholder_color = Color(1, 0.35, 0.1, 1)
+
+[sub_resource type="Resource" id="Resource_u5xq8"]
+script = ExtResource("15_rysi5")
+id = &"engine"
+display_name = "Engine"
+offset = Vector2(118, -6)
+size = Vector2(40, 36)
+damage_multiplier = 2.5
+active_phases = PackedStringArray("Overdrive", "Last Stand")
+
+[resource]
+script = ExtResource("13_ccw1q")
+id = &"warden_tank"
+display_name = "Warden"
+title = "Armoured Siege Tank"
+visual = SubResource("Resource_7mt06")
+body_size = Vector2(300, 140)
+max_health = 260
+weak_points = Array[ExtResource("15_rysi5")]([SubResource("Resource_ywqn7"), SubResource("Resource_u5xq8")])
+phases = Array[ExtResource("1_brccr")]([SubResource("Resource_c0vh0"), SubResource("Resource_gom1f"), SubResource("Resource_anm7f")])
+score = 8000
+music_id = &"music.boss"

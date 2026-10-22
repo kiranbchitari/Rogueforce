@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponDef" format=3]
+
+[ext_resource type="Resource" path="res://content/projectiles/spread_pellet.tres" id="1_atgj3"]
+[ext_resource type="Script" path="res://core/data/weapon_def.gd" id="2_07xsi"]
+
+[resource]
+script = ExtResource("2_07xsi")
+id = &"spread"
+display_name = "Spread Gun"
+projectile = ExtResource("1_atgj3")
+fire_interval = 0.24
+count = 5
+spread_deg = 40.0
+hud_color = Color(1, 0.45, 0.4, 1)

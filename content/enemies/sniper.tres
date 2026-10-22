@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EnemyDef" format=3]
+
+[ext_resource type="Script" path="res://core/behaviors/attacks/attack_def.gd" id="1_05y4l"]
+[ext_resource type="Resource" path="res://content/projectiles/sniper_round.tres" id="2_aues1"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/shot_attack.gd" id="3_crdjv"]
+[ext_resource type="Script" path="res://core/behaviors/movement/stationary_movement.gd" id="4_bcynj"]
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="5_631gt"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="6_c0q3c"]
+
+[sub_resource type="Resource" id="Resource_x600i"]
+script = ExtResource("3_crdjv")
+aim = "aimed"
+angle_deg = 0.0
+count = 1
+spread_deg = 0.0
+jitter_deg = 0.0
+track_during_burst = false
+label = "snipe"
+cooldown = 2.6
+min_range = 0.0
+max_range = 1200.0
+telegraph = "aim_line"
+telegraph_time = 0.9
+burst_count = 1
+burst_interval = 0.12
+active_time = 0.0
+recovery = 0.5
+stop_moving = true
+muzzle_offset = Vector2(28, -12)
+projectile = ExtResource("2_aues1")
+sfx_id = &"sfx.enemy_shot"
+
+[sub_resource type="Resource" id="Resource_pwrys"]
+script = ExtResource("4_bcynj")
+
+[sub_resource type="Resource" id="Resource_xy3dd"]
+script = ExtResource("6_c0q3c")
+asset_id = &"enemy.sniper"
+placeholder_color = Color(0.35, 0.45, 0.3, 1)
+
+[resource]
+script = ExtResource("5_631gt")
+id = &"sniper"
+display_name = "Sniper"
+category = "sniper"
+faction = &"iron_legion"
+visual = SubResource("Resource_xy3dd")
+body_size = Vector2(40, 80)
+max_health = 2
+contact_damage = 1
+flying = false
+movement = SubResource("Resource_pwrys")
+attacks = Array[ExtResource("1_05y4l")]([SubResource("Resource_x600i")])
+first_attack_delay = 0.6
+frontal_shield = false
+score = 200
+drop_chance = 0.0
+death_explosion_radius = 0.0
+death_explosion_damage = 0
+counts_as_enemy = true

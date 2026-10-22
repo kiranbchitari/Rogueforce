@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="EnemyDef" format=3]
+
+[ext_resource type="Script" path="res://core/behaviors/attacks/attack_def.gd" id="1_6opmq"]
+[ext_resource type="Resource" path="res://content/projectiles/grenade.tres" id="2_5gmyd"]
+[ext_resource type="Script" path="res://core/behaviors/attacks/lob_attack.gd" id="3_114pk"]
+[ext_resource type="Script" path="res://core/behaviors/movement/chase_movement.gd" id="4_wrkx4"]
+[ext_resource type="Script" path="res://core/data/enemy_def.gd" id="5_f3fpv"]
+[ext_resource type="Script" path="res://core/data/visual_def.gd" id="6_afxqi"]
+
+[sub_resource type="Resource" id="Resource_khp5l"]
+script = ExtResource("3_114pk")
+label = "grenade"
+cooldown = 2.4
+max_range = 750.0
+telegraph = "ground_marker"
+telegraph_time = 0.6
+muzzle_offset = Vector2(10, -30)
+projectile = ExtResource("2_5gmyd")
+
+[sub_resource type="Resource" id="Resource_s5ts1"]
+script = ExtResource("4_wrkx4")
+speed = 110.0
+preferred_distance = 460.0
+tolerance = 90.0
+
+[sub_resource type="Resource" id="Resource_xprg0"]
+script = ExtResource("6_afxqi")
+asset_id = &"enemy.grenadier"
+placeholder_color = Color(0.55, 0.4, 0.25, 1)
+
+[resource]
+script = ExtResource("5_f3fpv")
+id = &"grenadier"
+display_name = "Grenadier"
+category = "grenadier"
+faction = &"iron_legion"
+visual = SubResource("Resource_xprg0")
+body_size = Vector2(40, 80)
+max_health = 3
+contact_damage = 1
+flying = false
+movement = SubResource("Resource_s5ts1")
+attacks = Array[ExtResource("1_6opmq")]([SubResource("Resource_khp5l")])
+first_attack_delay = 0.6
+frontal_shield = false
+score = 200
+drop_chance = 0.0
+death_explosion_radius = 0.0
+death_explosion_damage = 0
+counts_as_enemy = true
